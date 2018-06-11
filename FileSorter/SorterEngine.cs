@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FileSorter.Entities;
 namespace FileSorter
 {
     class SorterEngine
@@ -17,17 +17,20 @@ namespace FileSorter
             this.folderPath = folderPath;
         }
 
-        public FileInfo[] GetFiles()
+        public List<FileDetails> GetFiles()
         {
             var directoryInfo = new DirectoryInfo(folderPath);
             var info = directoryInfo.GetFiles("*", SearchOption.AllDirectories);
-#if DEBUG
+            var detailsList = new List<FileDetails>();
             foreach(var item in info)
             {
-                Console.WriteLine(item.FullName);
+                detailsList.Add(new FileDetails(item));
             }
+
+#if DEBUG
+           detailsList.ForEach(item => System.Diagnostics.Debug.WriteLine(item.FileName));
 #endif
-            return info;
+            return detailsList;
         }
     }
 }
