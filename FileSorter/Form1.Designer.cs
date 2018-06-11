@@ -31,6 +31,7 @@
             this.txtDirectoryPath = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.fbdFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnSort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDirectoryPath
@@ -56,11 +57,22 @@
             this.fbdFolderBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.fbdFolderBrowser.ShowNewFolderButton = false;
             // 
+            // btnSort
+            // 
+            this.btnSort.Location = new System.Drawing.Point(148, 142);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(75, 23);
+            this.btnSort.TabIndex = 2;
+            this.btnSort.Text = "Sort";
+            this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 256);
+            this.Controls.Add(this.btnSort);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtDirectoryPath);
             this.Name = "Form1";
@@ -75,6 +87,7 @@
         private System.Windows.Forms.TextBox txtDirectoryPath;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.FolderBrowserDialog fbdFolderBrowser;
+        private System.Windows.Forms.Button btnSort;
     }
 }
 
